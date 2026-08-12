@@ -30,6 +30,27 @@
 
 ## 建工程步骤
 
+### 0. 先跑环境自检（在装了 ZW3D 的那台机器上）
+
+开发机和运行机是分开的：**这边写代码 + 管 git，那边编译 + 跑 ZW3D**，用这个仓库当传输通道。
+
+在 ZW3D 机器上：
+
+```
+git clone https://github.com/Tomorrowmo/ZWpyTool.git
+cd ZWpyTool\poc
+powershell -ExecutionPolicy Bypass -File check_env.ps1
+```
+
+脚本只读不改，跑完在同目录生成 `env_report.txt`，里面有：
+
+- ZW3D 装在哪、`api\` 目录结构、头文件目录、`.lib` 实际文件名、VSIX 向导路径
+- VS2022 的 `vcvars64.bat` 路径
+- **三个 `[TODO-VERIFY]` 的答案**（`ZW_ENTITY_FACE` 到底叫什么、`szwEntityIdentifier` 要不要手工释放、每个函数由哪个 `.h` 声明）
+- 可以直接抄进 `build.bat` 的四行路径配置
+
+**把 `env_report.txt` 发回来，代码里的疑点就能一次性定死，不用靠编译报错来试。**
+
 ### 1. 先验证向导模板本身能跑
 
 装完 ZW3D 后：
