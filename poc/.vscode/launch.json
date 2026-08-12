@@ -1,0 +1,15 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      // 附加到已运行的 ZW3D 进程 —— 插件 DLL 调试的标准方式
+      // 用法：先启动 ZW3D（会自动加载 apilibs 下的 PidTest.dll），
+      //       再在 VSCode 按 F5，进程列表里选 ZW3D.exe（或实际进程名），
+      //       然后在 ZW3D 命令行输入 ~PidMark，断点即命中。
+      "name": "Attach to ZW3D",
+      "type": "cppvsdbg",
+      "request": "attach",
+      "processId": "${command:pickProcess}"
+    }
+  ]
+}

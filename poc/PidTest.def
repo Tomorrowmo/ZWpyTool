@@ -1,0 +1,7 @@
+LIBRARY PidTest.dll
+EXPORTS
+PidTestInit
+PidTestExit
+PidMark
+PidEdit
+PidCheck

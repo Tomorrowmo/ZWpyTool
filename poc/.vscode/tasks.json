@@ -1,0 +1,26 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build PidTest",
+      "type": "shell",
+      "command": "${workspaceFolder}/build.bat",
+      "options": { "cwd": "${workspaceFolder}" },
+      "group": { "kind": "build", "isDefault": true },
+      "presentation": { "reveal": "always", "panel": "dedicated" },
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "deploy to apilibs",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-NoProfile", "-Command",
+        "$d=\"$env:ZW3D_DIR\\apilibs\"; if(-not(Test-Path $d)){New-Item -ItemType Directory -Force $d|Out-Null}; Copy-Item '${workspaceFolder}/build/PidTest.dll' $d -Force; Write-Host \"copied -> $d\""
+      ],
+      "dependsOn": "build PidTest",
+      "presentation": { "reveal": "always" },
+      "problemMatcher": []
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+# ---- 官方帮助文档（中望版权，不随仓库分发）----
+# 装完 ZW3D 后在安装目录 api\ 下可找到，或向中望索取
+*.chm
+
+# ---- MSVC 编译产物 ----
+build/
+*.obj
+*.dll
+*.lib
+*.exp
+*.pdb
+*.ilk
+*.idb
+
+# ---- Visual Studio ----
+.vs/
+*.user
+*.suo
+Debug/
+Release/
+x64/
+
+# ---- ZW3D 运行产物 ----
+*.Z3
+*.Z3ASM
+*.Z3PRT
+*.bak
+
+# ---- OS ----
+Thumbs.db
+desktop.ini
+.DS_Store
